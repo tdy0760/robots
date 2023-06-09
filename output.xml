@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.9.13 on darwin)" generated="20230608 20:33:40.805" rpa="true" schemaversion="3">
+<suite id="s1" name="Tasks" source="/Users/tomekdyl/Documents/robocorp/order-robots/tasks.robot">
+<test id="s1-t1" name="Order robots form RobotsSpareBin Industries Inc." line="27">
+<kw name="Zip folders">
+<kw name="Set Variable" library="BuiltIn">
+<var>${RECEIPT_FOLDER}</var>
+<arg>${OUTPUT_DIR}${/}receipts</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230608 20:33:46.671" level="INFO">${RECEIPT_FOLDER} = /Users/tomekdyl/Documents/robocorp/order-robots/receipts</msg>
+<status status="PASS" starttime="20230608 20:33:46.668" endtime="20230608 20:33:46.675"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${ROBOTS_FOLDER}</var>
+<arg>${OUTPUT_DIR}${/}robots</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230608 20:33:46.687" level="INFO">${ROBOTS_FOLDER} = /Users/tomekdyl/Documents/robocorp/order-robots/robots</msg>
+<status status="PASS" starttime="20230608 20:33:46.683" endtime="20230608 20:33:46.688"/>
+</kw>
+<kw name="Archive Folder With Zip" library="RPA.Archive">
+<arg>${RECEIPT_FOLDER}</arg>
+<arg>RECEIPTS.ZIP</arg>
+<doc>Create a zip archive of a folder</doc>
+<status status="PASS" starttime="20230608 20:33:46.695" endtime="20230608 20:33:46.734"/>
+</kw>
+<kw name="Archive Folder With Zip" library="RPA.Archive">
+<arg>${ROBOTS_FOLDER}</arg>
+<arg>ROBOTS.ZIP</arg>
+<doc>Create a zip archive of a folder</doc>
+<status status="PASS" starttime="20230608 20:33:46.738" endtime="20230608 20:33:46.757"/>
+</kw>
+<kw name="Copy File" library="RPA.FileSystem">
+<arg>${OUTPUT_DIR}${/}RECEIPTS.ZIP</arg>
+<arg>${OUTPUT_DIR}${/}output/receipts.zip</arg>
+<doc>Copy a file from source path to destination path.</doc>
+<msg timestamp="20230608 20:33:46.776" level="INFO">Copied file: /Users/tomekdyl/Documents/robocorp/order-robots/RECEIPTS.ZIP -&gt; /Users/tomekdyl/Documents/robocorp/order-robots/output/receipts.zip</msg>
+<status status="PASS" starttime="20230608 20:33:46.760" endtime="20230608 20:33:46.779"/>
+</kw>
+<status status="PASS" starttime="20230608 20:33:46.664" endtime="20230608 20:33:46.786"/>
+</kw>
+<status status="PASS" starttime="20230608 20:33:46.658" endtime="20230608 20:33:46.792"/>
+</test>
+<doc>Fill the order according to cvs file.
+Save the order HTML receipt as a PDF file
+Save the screenchot of the ordered robot
+Embed the screenshot of the robot to the PDF receipt
+creates ZIP archive of the receipts and the images</doc>
+<status status="PASS" starttime="20230608 20:33:40.820" endtime="20230608 20:33:46.799"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
